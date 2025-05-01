@@ -31,11 +31,15 @@
 
             // 商品購入の関数
             function buyItem(no) {
-                console.log("商品番号: " + items[no-1].id + ", 商品名: " + items[no-1].name + "を購入します。");
-                if(items[no-1].stock <= 0){
-                    console.log("在庫がありません。");
+                if(1 <= no && no <= 8){
+                    console.log("商品番号: " + items[no-1].id + ", 商品名: " + items[no-1].name + "を購入します。");
+                    if(items[no-1].stock <= 0){
+                        console.log("在庫がありません。");
+                    }else{
+                        items[no-1].stock = items[no-1].stock-1;
+                    }
                 }else{
-                    items[no-1].stock = items[no-1].stock-1;
+                    console.log(no + "は無効な商品番号です。番号は1～8で指定してください。")
                 }// ここにコードを書く
                 showItemList(); // 商品一覧の表示関数呼び出し
             }
